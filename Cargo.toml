@@ -1,0 +1,19 @@
+[package]
+name = "short-url-worker"
+version = "0.1.0"
+edition = "2021"
+description = "Short URL service written in Rust and deployed on Cloudflare Worker"
+repository = "https://github.com/NightFeather0615/short-url-worker"
+license = "MPL-2.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+worker = "0.3.0"
+
+[profile.release]
+opt-level = "s" # optimize for size in release builds
+lto = true
+strip = true
+codegen-units = 1

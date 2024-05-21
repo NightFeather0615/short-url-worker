@@ -1,0 +1,13 @@
+name = "short-url-worker"
+main = "build/worker/shim.mjs"
+compatibility_date = "2023-12-01"
+
+kv_namespaces = [
+  { binding = "ShortUrl", id = "2c7aacbea54a4f61a5f069d94f2bc2d6" }
+]
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[env.dev]
+build = { command = "cargo install -q worker-build && worker-build --dev" }
